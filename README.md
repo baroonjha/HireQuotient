@@ -1,6 +1,6 @@
 # React + Vite
-
-##To run this 
+### Project Deployed Link :https://hire-quotient-one.vercel.app/
+## To run this project ,follow the steps :-
 
 1. Clone this repo 
     ```t
@@ -12,9 +12,10 @@
   ```t
    npm install
    ```
-4.This will run this app on [localhost:](http://localhost:5173/)
+4.This will run this app on localhost on port 5137
 ```t
    npm run dev
    ```
    
 Now open  http://localhost:5173/ in  your Browser ,you will see the app running .
+
