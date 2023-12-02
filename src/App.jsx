@@ -150,7 +150,7 @@ const DashBoard = () => {
                 checked={selectedRows.length === pageSize}
               />
             </th>
-            <th>ID</th>
+            {/* <th>ID</th> */}
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
@@ -170,7 +170,7 @@ const DashBoard = () => {
                     checked={selectedRows.includes(member.id)}
                   />
                 </td>
-                <td>{member.id}</td>
+                {/* <td>{member.id}</td> */}
                 <td>
                   {isRowEditing(member.id) ? (
                     <input
