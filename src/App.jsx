@@ -36,6 +36,23 @@ const DashBoard = () => {
     setCurrentPage(1);
   };
 
+  //For dynamic searching , working
+  const handleSearchDynamic = (event) => {
+    const inputValue = event.target.value.toLowerCase();
+    if (inputValue === '') {
+       setFilteredMembers(members);
+    } else {
+      const newData = filteredMembers.filter(row => {
+        return Object.values(row).some(value =>
+          String(value).toLowerCase().includes(inputValue)
+        );
+      });
+      setFilteredMembers(newData);
+    }
+  };
+
+
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -113,10 +130,11 @@ const DashBoard = () => {
         <input
           type="text"
           placeholder="Search..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          // value={searchTerm}
+          // onChange={(e) => setSearchTerm(e.target.value)} //this is for manual search
+          onChange={handleSearchDynamic}
         />
-        <button className="search-icon" onClick={handleSearch}>Search</button>
+        {/* <button className="search-icon" onClick={handleSearch}>Search</button> */}
       </div>
       <div className="delete-container">
         <button className="delete" onClick={handleDelete}>Delete Selected</button>
