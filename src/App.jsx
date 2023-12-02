@@ -17,7 +17,7 @@ const AdminInterface = () => {
   const [editedRole, setEditedRole] = useState('');
 
   useEffect(() => {
-    // Fetch data from the API
+    // fetching data
     axios.get(API_URL)
       .then(response => {
         setMembers(response.data);
@@ -33,7 +33,7 @@ const AdminInterface = () => {
       )
     );
     setFilteredMembers(filtered);
-    setCurrentPage(1); // Reset to the first page after search
+    setCurrentPage(1);
   };
 
   const handlePageChange = (page) => {
@@ -71,7 +71,7 @@ const AdminInterface = () => {
     setSelectedRows([]);
     setEditedMember(null);
   };
-  
+
   const handleDelete = () => {
     const updatedMembers = members.filter(member => !selectedRows.includes(member.id));
     setMembers(updatedMembers);
@@ -136,7 +136,6 @@ const AdminInterface = () => {
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
-            {/* Add more columns as needed */}
             <th>Actions</th>
           </tr>
         </thead>
@@ -187,7 +186,6 @@ const AdminInterface = () => {
                     member.role
                   )}
                 </td>
-                {/* Add more columns as needed */}
                 <td>
                   {isRowEditing(member.id) ? (
                     <>
