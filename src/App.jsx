@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_URL = 'https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json';
+
 
 const pageSize = 10;
 
-const AdminInterface = () => {
+const DashBoard = () => {
   const [members, setMembers] = useState([]);
   const [filteredMembers, setFilteredMembers] = useState([]);
   const [selectedRows, setSelectedRows] = useState([]);
@@ -18,7 +18,7 @@ const AdminInterface = () => {
 
   useEffect(() => {
     // fetching data
-    axios.get(API_URL)
+    axios.get("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
       .then(response => {
         setMembers(response.data);
         setFilteredMembers(response.data);
@@ -219,4 +219,4 @@ const AdminInterface = () => {
   );
 };
 
-export default AdminInterface;
+export default DashBoard;
