@@ -64,6 +64,14 @@ const AdminInterface = () => {
     setEditedRole('');
   };
 
+  const handleDeleteRow = (id) => {
+    const updatedMembers = members.filter(member => member.id !== id);
+    setMembers(updatedMembers);
+    setFilteredMembers(updatedMembers);
+    setSelectedRows([]);
+    setEditedMember(null);
+  };
+  
   const handleDelete = () => {
     const updatedMembers = members.filter(member => !selectedRows.includes(member.id));
     setMembers(updatedMembers);
@@ -189,7 +197,7 @@ const AdminInterface = () => {
                   ) : (
                     <>
                       <button className="edit" onClick={() => handleEdit(member.id, member.name, member.email, member.role)}>Edit</button>
-                      <button className="delete" onClick={handleDelete}>Delete</button>
+                      <button className="delete" onClick={() => handleDeleteRow(member.id)}>Delete</button>
                     </>
                   )}
                 </td>
